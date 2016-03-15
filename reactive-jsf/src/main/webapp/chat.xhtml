@@ -25,7 +25,7 @@
     </h:head>       
 
     <f:view transient="false">
-        <h:form>
+        <h:form id="chat">
             <body style="font-family:Verdana">
                 <div class="container">
                     <br/>
@@ -69,7 +69,7 @@
                                     </div>
                                     <div class="panel-footer">
                                         <div class="input-group">
-                                            <h:inputText value="#{reactiveChat.answer}"  required="true" styleClass="form-control"/>                                        
+                                            <h:inputText value="#{reactiveChat.answer}"  id="chatmessage" required="true" styleClass="form-control"/>                                        
                                             <span class="input-group-btn">
                                                 <h:commandButton styleClass="btn btn-info" action="#{reactiveChat.doAction}" value="Send"/>                                            
                                             </span>
@@ -112,9 +112,9 @@
                                                             <img class="media-object img-circle" style="max-height:40px;" src="#{request.contextPath}/resources/img/user.gif" />
                                                         </a>
                                                         <div class="media-body" >
-                                                            <h5>Jhon Rexa | User </h5>
+                                                            <h5>Quest | You </h5>
 
-                                                            <small class="text-muted">Active From 3 hours</small>
+                                                            <small class="text-muted">Active From Now</small>
                                                         </div>
                                                     </div>
 
