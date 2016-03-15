@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"     
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:p="http://primefaces.org/ui"  
+      xmlns:passthrough="http://xmlns.jcp.org/jsf/passthrough"     
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"> 
+    <h:head>
+        <title>Home Page</title>
+    </h:head>       
+
+    <f:view transient="false">
+        <h:form>
+            <center>
+                <h4>Reactive JavaServer Faces 2.2 </h4>
+                <h:selectOneMenu id="questionId" 
+                                 style="width:290px" required="true" value="#{reactiveBean.question.id}">
+                    <f:selectItems value="#{reactiveBean.questionList}" var="item" itemLabel="#{item.question}" itemValue="#{item.id}"/>
+                </h:selectOneMenu> 
+                <br/>
+                <h:commandButton value="Ask Question" action="#{reactiveBean.doReactive()}" styleClass="btn-primary"/>
+
+                <br/>
+                <h4>Answer is: </h4>
+                <br/>
+                <h:outputText value="#{reactiveBean.answer}"/>
+                <h:outputText value="Here will be answer!!!" rendered="#{reactiveBean.answer == null}"/>
+            </center>
+        </h:form>
+    </f:view>    
+</html>
+
