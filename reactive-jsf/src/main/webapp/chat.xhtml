@@ -1,0 +1,237 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"     
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:p="http://primefaces.org/ui"  
+      xmlns:passthrough="http://xmlns.jcp.org/jsf/passthrough"     
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"> 
+    <h:head>
+        <head>
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+            <meta name="description" content="" />
+            <meta name="author" content="" />
+            <!--[if IE]>
+                <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+                <![endif]-->
+            <title>CHAT</title>
+            <!-- BOOTSTRAP CORE STYLE CSS -->
+            <link href="#{request.contextPath}/resources/css/bootstrap.css" rel="stylesheet" />
+
+        </head>
+    </h:head>       
+
+    <f:view transient="false">
+        <h:form>
+            <body style="font-family:Verdana">
+                <div class="container">
+                    <br/>
+                    <h:commandButton styleClass="btn btn-info" rendered="#{!reactiveChat.renderChat}" action="#{reactiveChat.doReactive()}" value="Start Chat"/> 
+                    <h:panelGroup rendered="#{reactiveChat.renderChat}">
+                        <div class="row " style="padding-top:40px;">
+                            <h3 class="text-center">Reactive chat </h3>
+
+                            <br /><br />
+
+                            <div class="col-md-8">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">
+                                        RECENT CHAT HISTORY
+                                    </div>
+                                    <div class="panel-body">
+                                        <ul class="media-list">
+                                            <li class="media">
+                                                <ui:repeat value="#{reactiveChat.answersList}" var="list">
+                                                    <div class="media-body">
+                                                        <div class="media">
+                                                            <a class="pull-left" href="#">
+                                                                <h:panelGroup rendered="#{list.username == 'Alen Doll'}">
+                                                                <img class="media-object img-circle " src="#{request.contextPath}/resources/img/user.png" />
+                                                                </h:panelGroup>
+                                                                <h:panelGroup rendered="#{list.username != 'Alen Doll'}">
+                                                                <img class="media-object img-circle " src="#{request.contextPath}/resources/img/user.gif" />
+                                                                </h:panelGroup>
+                                                            </a>
+                                                            <div class="media-body" >
+                                                                #{list.message}
+                                                                <br />
+                                                                <small class="text-muted">#{list.username}</small>
+                                                                <hr />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </ui:repeat>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="panel-footer">
+                                        <div class="input-group">
+                                            <h:inputText value="#{reactiveChat.answer}"  required="true" styleClass="form-control"/>                                        
+                                            <span class="input-group-btn">
+                                                <h:commandButton styleClass="btn btn-info" action="#{reactiveChat.doAction}" value="Send"/>                                            
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        ONLINE USERS
+                                    </div>
+                                    <div class="panel-body">
+                                        <ul class="media-list">
+
+                                            <li class="media">
+
+                                                <div class="media-body">
+
+                                                    <div class="media">
+                                                        <a class="pull-left" href="#">
+                                                            <img class="media-object img-circle" style="max-height:40px;" src="#{request.contextPath}/resources/img/user.png" />
+                                                        </a>
+                                                        <div class="media-body" >
+                                                            <h5>Alex Deo | User </h5>
+
+                                                            <small class="text-muted">Active From 3 hours</small>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </li>
+                                            <li class="media">
+
+                                                <div class="media-body">
+
+                                                    <div class="media">
+                                                        <a class="pull-left" href="#">
+                                                            <img class="media-object img-circle" style="max-height:40px;" src="#{request.contextPath}/resources/img/user.gif" />
+                                                        </a>
+                                                        <div class="media-body" >
+                                                            <h5>Jhon Rexa | User </h5>
+
+                                                            <small class="text-muted">Active From 3 hours</small>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </li>
+                                            <li class="media">
+
+                                                <div class="media-body">
+
+                                                    <div class="media">
+                                                        <a class="pull-left" href="#">
+                                                            <img class="media-object img-circle" style="max-height:40px;" src="#{request.contextPath}/resources/img/user.png" />
+                                                        </a>
+                                                        <div class="media-body" >
+                                                            <h5>Alex Deo | User </h5>
+
+                                                            <small class="text-muted">Active From 3 hours</small>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </li>
+                                            <li class="media">
+
+                                                <div class="media-body">
+
+                                                    <div class="media">
+                                                        <a class="pull-left" href="#">
+                                                            <img class="media-object img-circle" style="max-height:40px;" src="#{request.contextPath}/resources/img/user.gif" />
+                                                        </a>
+                                                        <div class="media-body" >
+                                                            <h5>Jhon Rexa | User </h5>
+
+                                                            <small class="text-muted">Active From 3 hours</small>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </li>
+                                            <li class="media">
+
+                                                <div class="media-body">
+
+                                                    <div class="media">
+                                                        <a class="pull-left" href="#">
+                                                            <img class="media-object img-circle" style="max-height:40px;" src="#{request.contextPath}/resources/img/user.png" />
+                                                        </a>
+                                                        <div class="media-body" >
+                                                            <h5>Alex Deo | User </h5>
+
+                                                            <small class="text-muted">Active From 3 hours</small>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </li>
+                                            <li class="media">
+
+                                                <div class="media-body">
+
+                                                    <div class="media">
+                                                        <a class="pull-left" href="#">
+                                                            <img class="media-object img-circle" style="max-height:40px;" src="#{request.contextPath}/resources/img/user.gif" />
+                                                        </a>
+                                                        <div class="media-body" >
+                                                            <h5>Jhon Rexa | User </h5>
+
+                                                            <small class="text-muted">Active From 3 hours</small>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </li>
+                                            <li class="media">
+
+                                                <div class="media-body">
+
+                                                    <div class="media">
+                                                        <a class="pull-left" href="#">
+                                                            <img class="media-object img-circle" style="max-height:40px;" src="#{request.contextPath}/resources/img/user.png" />
+                                                        </a>
+                                                        <div class="media-body" >
+                                                            <h5>Alex Deo | User </h5>
+
+                                                            <small class="text-muted">Active From 3 hours</small>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </li>
+                                            <li class="media">
+
+                                                <div class="media-body">
+
+                                                    <div class="media">
+                                                        <a class="pull-left" href="#">
+                                                            <img class="media-object img-circle" style="max-height:40px;" src="#{request.contextPath}/resources/img/user.gif" />
+                                                        </a>
+                                                        <div class="media-body" >
+                                                            <h5>Jhon Rexa | User </h5>
+
+                                                            <small class="text-muted">Active From 3 hours</small>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </h:panelGroup>
+                </div>
+            </body>
+        </h:form>
+    </f:view>    
+</html>
+
