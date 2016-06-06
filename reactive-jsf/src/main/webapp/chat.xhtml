@@ -29,6 +29,8 @@
             <body style="font-family:Verdana">
                 <div class="container">
                     <br/>
+                    <h:link outcome="index.jsf" value="Main Page"/>
+                    <br/>  <br/>
                     <h:commandButton styleClass="btn btn-info" rendered="#{!reactiveChat.renderChat}" action="#{reactiveChat.doReactive()}" value="Start Chat"/> 
                     <h:panelGroup rendered="#{reactiveChat.renderChat}">
                         <div class="row " style="padding-top:40px;">
@@ -48,11 +50,11 @@
                                                     <div class="media-body">
                                                         <div class="media">
                                                             <a class="pull-left" href="#">
-                                                                <h:panelGroup rendered="#{list.username == 'Alen Doll'}">
-                                                                <img class="media-object img-circle " src="#{request.contextPath}/resources/img/user.png" />
+                                                                <h:panelGroup rendered="#{list.username == 'John Smith'}">
+                                                                    <img class="media-object img-circle " src="#{request.contextPath}/resources/img/user.png" />
                                                                 </h:panelGroup>
-                                                                <h:panelGroup rendered="#{list.username != 'Alen Doll'}">
-                                                                <img class="media-object img-circle " src="#{request.contextPath}/resources/img/user.gif" />
+                                                                <h:panelGroup rendered="#{list.username != 'John Smith'}">
+                                                                    <img class="media-object img-circle " src="#{request.contextPath}/resources/img/user.gif" />
                                                                 </h:panelGroup>
                                                             </a>
                                                             <div class="media-body" >
@@ -120,8 +122,8 @@
 
                                                 </div>
                                             </li>
-                                  
-                                  
+
+
                                         </ul>
                                     </div>
                                 </div>
