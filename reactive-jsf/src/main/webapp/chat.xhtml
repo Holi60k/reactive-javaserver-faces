@@ -23,7 +23,9 @@
 
         </head>
     </h:head>       
-
+    <script>
+        $("#chat").animate({scrollTop: $('#chat').height()}, 1000);
+    </script>
     <f:view transient="false">
         <h:form id="chat">
             <body style="font-family:Verdana">
@@ -46,26 +48,30 @@
                                     <div class="panel-body">
                                         <ul class="media-list">
                                             <li class="media">
-                                                <ui:repeat value="#{reactiveChat.answersList}" var="list">
-                                                    <div class="media-body">
-                                                        <div class="media">
-                                                            <a class="pull-left" href="#">
-                                                                <h:panelGroup rendered="#{list.username == 'John Smith'}">
-                                                                    <img class="media-object img-circle " src="#{request.contextPath}/resources/img/user.png" />
-                                                                </h:panelGroup>
-                                                                <h:panelGroup rendered="#{list.username != 'John Smith'}">
-                                                                    <img class="media-object img-circle " src="#{request.contextPath}/resources/img/user.gif" />
-                                                                </h:panelGroup>
-                                                            </a>
-                                                            <div class="media-body" >
-                                                                #{list.message}
-                                                                <br />
-                                                                <small class="text-muted">#{list.username}</small>
-                                                                <hr />
+                                              
+
+                                                <div id="chat" style="width: 750px; height: 600px; overflow-y: scroll;">
+                                                    <ui:repeat value="#{reactiveChat.answersList}" var="list">
+                                                        <div class="media-body">
+                                                            <div class="media">
+                                                                <a class="pull-left" href="#">
+                                                                    <h:panelGroup rendered="#{list.username == 'John Smith'}">
+                                                                        <img class="media-object img-circle " src="#{request.contextPath}/resources/img/user.png" />
+                                                                    </h:panelGroup>
+                                                                    <h:panelGroup rendered="#{list.username != 'John Smith'}">
+                                                                        <img class="media-object img-circle " src="#{request.contextPath}/resources/img/user.gif" />
+                                                                    </h:panelGroup>
+                                                                </a>
+                                                                <div class="media-body" >
+                                                                    #{list.message}
+                                                                    <br />
+                                                                    <small class="text-muted">#{list.username}</small>
+                                                                    <hr />
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </ui:repeat>
+                                                    </ui:repeat>
+                                                </div>
                                             </li>
                                         </ul>
                                     </div>
@@ -73,7 +79,7 @@
                                         <div class="input-group">
                                             <h:inputText value="#{reactiveChat.answer}"  id="chatmessage" required="true" styleClass="form-control"/>                                        
                                             <span class="input-group-btn">
-                                                <h:commandButton styleClass="btn btn-info" action="#{reactiveChat.doAction}" value="Send"/>                                            
+                                                <h:commandButton styleClass="btn btn-info" action="#{reactiveChat.doAction}" value="Answer"/>                                            
                                             </span>
                                         </div>
                                     </div>

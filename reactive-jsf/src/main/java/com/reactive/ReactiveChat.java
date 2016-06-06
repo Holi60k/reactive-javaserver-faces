@@ -20,8 +20,6 @@ public class ReactiveChat implements Serializable {
     private boolean renderChat = false;
     private List<ChatUser> answersList;
     private List<String> messagesList = new ArrayList<>();
-    
-    
 
     public void doReactive() {
         System.out.println("doReactive called ");
@@ -37,14 +35,14 @@ public class ReactiveChat implements Serializable {
         messagesList.add("Do you like only Real Madrid?");
         messagesList.add("I think you are far from football as Armenia from China!");
         messagesList.add("I hope so");
-        messagesList.add("Shut down your PC!");  
-        messagesList.add("Just eat your apple!");  
-        messagesList.add("Restart your computer");   
-        messagesList.add("Mamma mia!!!");    
-        messagesList.add("Your iphone is broken?");    
-        messagesList.add("REAL CHAMPION AGAIN!!!");    
-        messagesList.add("Hey Looser, learn English!!!!!");    
-        messagesList.add("Reset or shutdown your mind!!!!!!");    
+        messagesList.add("Shut down your PC!");
+        messagesList.add("Just eat your apple!");
+        messagesList.add("Restart your computer");
+        messagesList.add("Mamma mia!!!");
+        messagesList.add("Your iphone is broken?");
+        messagesList.add("REAL CHAMPION AGAIN!!!");
+        messagesList.add("Hey Looser, learn English!!!!!");
+        messagesList.add("Reset or shutdown your mind!!!!!!");
         messagesList.add("Did you have good flight!");
         messagesList.add("Ronaldo the Best!");
         messagesList.add("What did you mean?");
@@ -54,7 +52,7 @@ public class ReactiveChat implements Serializable {
         messagesList.add("What do think about Game Over?");
         messagesList.add("Good morning Papa");
         messagesList.add("Do Re Me?");
-        answersList = new ArrayList<>();        
+        answersList = new ArrayList<>();
         ChatUser q1 = new ChatUser();
         q1.setUsername("John Smith");
         q1.setMessage("Hey, who is the best player: Ronaldo or Messi?????");
@@ -63,12 +61,11 @@ public class ReactiveChat implements Serializable {
     }
 
     public void doAction() {
-        System.out.println("Answer passed " + answer);
+        //System.out.println("Answer passed " + answer);
         myObservable.subscribe(mySubscriber);
     }
 
     public List<ChatUser> getAnswersList() {
-
         return answersList;
     }
 
@@ -76,7 +73,7 @@ public class ReactiveChat implements Serializable {
             new Observable.OnSubscribe<String>() {
         @Override
         public void call(Subscriber<? super String> sub) {
-            System.out.println("Answer " + answer);
+            //System.out.println("Answer " + answer);
             if (answer != null) {
                 sub.onNext("ans");
                 sub.onCompleted();
@@ -91,7 +88,7 @@ public class ReactiveChat implements Serializable {
         public void onNext(String s) {
             if (s.equalsIgnoreCase("ans")) {
                 ChatUser q1 = new ChatUser();
-                q1.setUsername("RealMadrid Fun");
+                q1.setUsername("Guest");
                 q1.setMessage(answer);
                 getAnswersList().add(q1);
                 ChatUser a = new ChatUser();
@@ -100,20 +97,19 @@ public class ReactiveChat implements Serializable {
                 a.setMessage(messagesList.get(r.nextInt(messagesList.size())));
                 getAnswersList().add(a);
             }
-            System.out.println("Subscriber " + s);
+            //System.out.println("Subscriber " + s);
             answer = null;
         }
+
         @Override
         public void onCompleted() {
         }
+
         @Override
         public void onError(Throwable e) {
         }
     };
 
-    
-    
-    
     public boolean isRenderChat() {
         return renderChat;
     }
