@@ -45,6 +45,14 @@
                                     <div class="panel-heading">
                                         RECENT CHAT HISTORY
                                     </div>
+                                     <div class="panel-footer">
+                                        <div class="input-group">
+                                            <h:inputText value="#{reactiveChat.answer}"  id="chatmessage" required="true" styleClass="form-control"/>                                        
+                                            <span class="input-group-btn">
+                                                <h:commandButton styleClass="btn btn-info" action="#{reactiveChat.doAction}" value="Answer"/>                                            
+                                            </span>
+                                        </div>
+                                    </div>
                                     <div class="panel-body">
                                         <ul class="media-list">
                                             <li class="media">
@@ -75,14 +83,7 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="panel-footer">
-                                        <div class="input-group">
-                                            <h:inputText value="#{reactiveChat.answer}"  id="chatmessage" required="true" styleClass="form-control"/>                                        
-                                            <span class="input-group-btn">
-                                                <h:commandButton styleClass="btn btn-info" action="#{reactiveChat.doAction}" value="Answer"/>                                            
-                                            </span>
-                                        </div>
-                                    </div>
+                                   
                                 </div>
                             </div>
 
