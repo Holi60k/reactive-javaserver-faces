@@ -9,6 +9,12 @@
     <name>learnrxjava</name>  
     <url>https://github.com/jhusain/learnrxjava</url>  
     <dependencies> 
+        <!-- https://mvnrepository.com/artifact/io.reactivex/rxnetty -->
+<dependency>
+    <groupId>io.reactivex</groupId>
+    <artifactId>rxnetty</artifactId>
+    <version>0.4.4</version>
+</dependency>
         <!-- https://mvnrepository.com/artifact/org.twitter4j/twitter4j-core -->
         <dependency>
             <groupId>org.twitter4j</groupId>
@@ -57,16 +63,13 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
+            <scope>test</scope>
         </dependency>
 
 
 
         <!-- https://mvnrepository.com/artifact/junit/junit -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-        </dependency>
+       
         <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
         <dependency>
             <groupId>org.slf4j</groupId>
