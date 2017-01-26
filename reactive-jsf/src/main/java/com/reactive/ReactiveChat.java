@@ -21,6 +21,9 @@ public class ReactiveChat implements Serializable {
     private boolean renderChat = false;
     private List<ChatUser> answersList;
     private List<String> messagesList = new ArrayList<>();
+   // private String link = "<a href=\"https://www.youtube.com/watch?v=vCwwba9SgIE\">Click</a>";
+//
+    //String withURL = link.replaceAll("(?:https?|ftps?)://[\\w/%.-]+", "<a href='$0'>$0</a>");
 
     public void doReactive() {
         System.out.println("doReactive called ");
@@ -33,31 +36,34 @@ public class ReactiveChat implements Serializable {
     }
 
     public ReactiveChat() {
-        messagesList.add(0,"Do you like only Real Madrid?");
-        messagesList.add(0,"I think you are far from football as Armenia from China!");
-        messagesList.add(0,"I hope so");
-        messagesList.add(0,"Shut down your PC!");
-        messagesList.add(0,"Just eat your apple!");
-        messagesList.add(0,"Restart your computer");
-        messagesList.add(0,"Mamma mia!!!");
-        messagesList.add(0,"Your iphone is broken?");
-        messagesList.add(0,"REAL CHAMPION AGAIN!!!");
-        messagesList.add(0,"Hey Looser, learn English!!!!!");
-        messagesList.add(0,"Reset or shutdown your mind!!!!!!");
-        messagesList.add(0,"Did you have good flight!");
-        messagesList.add(0,"Ronaldo the Best!");
-        messagesList.add(0,"What did you mean?");
-        messagesList.add(0,"Have you had eny bad?");
-        messagesList.add(0,"Not much , but more, I think");
-        messagesList.add(0,"Are you sure?");
-        messagesList.add(0,"What do think about Game Over?");
-        messagesList.add(0,"Good morning Papa");
-        messagesList.add(0,"Do Re Me?");
+        messagesList.add(0, "Do you like only Real Madrid? ");
+        messagesList.add(0, "I think you are far from football as Armenia from China! ");
+        messagesList.add(0, "I hope so");
+        messagesList.add(0, "Shut down your PC!");
+        messagesList.add(0, "Just eat your apple!");
+        messagesList.add(0, "Restart your computer");
+        messagesList.add(0, "Mamma mia!!!  ");
+        messagesList.add(0, "Your iphone is broken?");
+        messagesList.add(0, "REAL CHAMPION AGAIN!!!");
+        messagesList.add(0, "Hey Looser, learn English!!!!!");
+        messagesList.add(0, "Reset or shutdown your mind!!!!!!");
+        messagesList.add(0, "Did you have good flight!");
+        messagesList.add(0, "Ronaldo the Best!  ");
+        messagesList.add(0, "JSF kill any JavaScript!  ");
+        messagesList.add(0, "Yerevan is one of the oldest citiest!  ");
+        messagesList.add(0, "What did you mean? ");
+        messagesList.add(0, "Have you had eny bad?");
+        messagesList.add(0, "Not much , but more, I think  ");
+        messagesList.add(0, "Are you sure?");
+        messagesList.add(0, "What do think about Game Over?");
+        messagesList.add(0, "Good morning Papa");
+        messagesList.add(0, "Do Re Me?");
+        messagesList.add(0, "Hey, who is the best player: Ronaldo or Messi?????");
         answersList = new ArrayList<>();
         ChatUser q1 = new ChatUser();
         q1.setUsername("John Smith");
-        q1.setMessage("Hey, who is the best player: Ronaldo or Messi?????");
-        answersList.add(q1);
+        q1.setMessage("Welcome to my personal chat! I hope you are like Real Madrid!!!");
+        answersList.add(0, q1);
         chatUser = new ChatUser();
     }
 
@@ -67,7 +73,7 @@ public class ReactiveChat implements Serializable {
     }
 
     public List<ChatUser> getAnswersList() {
-      //  Collections.reverse(answersList);
+        //  Collections.reverse(answersList);
         return answersList;
     }
 
@@ -92,12 +98,12 @@ public class ReactiveChat implements Serializable {
                 ChatUser q1 = new ChatUser();
                 q1.setUsername("Guest");
                 q1.setMessage(answer);
-                getAnswersList().add(0,q1);
+                getAnswersList().add(0, q1);
                 ChatUser a = new ChatUser();
                 a.setUsername("John Smith");
                 Random r = new Random();
                 a.setMessage(messagesList.get(r.nextInt(messagesList.size())));
-                getAnswersList().add(0,a);
+                getAnswersList().add(0, a);
             }
             //System.out.println("Subscriber " + s);
             answer = null;

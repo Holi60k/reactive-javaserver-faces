@@ -71,7 +71,8 @@
                                                                     </h:panelGroup>
                                                                 </a>
                                                                 <div class="media-body" >
-                                                                    #{list.message}
+                                                                    
+                                                                    <h:outputText value="#{list.message}" escape="false"/>
                                                                     <br />
                                                                     <small class="text-muted">#{list.username}</small>
                                                                     <hr />
