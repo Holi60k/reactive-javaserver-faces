@@ -96,15 +96,7 @@ public class CustomOperators {
 	}
 
 
-	@Test
-	public void sample_67() throws Exception {
-		Observable
-				.range(1, 9)
-				.buffer(1, 2)
-				.concatMapIterable(x -> x)
-				.map(Object::toString);
-	}
-
+	
 	@Test
 	public void sample_112() throws Exception {
 		Observable
