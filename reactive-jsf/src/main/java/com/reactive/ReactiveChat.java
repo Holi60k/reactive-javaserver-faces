@@ -2,12 +2,9 @@ package com.reactive;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import rx.Observable;
 import rx.Subscriber;
@@ -16,10 +13,12 @@ import rx.Subscriber;
 @ViewScoped
 public class ReactiveChat implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     private ChatUser chatUser;
     private String answer = null;
     private boolean renderChat = false;
-    private List<ChatUser> answersList;
+    private final List<ChatUser> answersList;
     private List<String> messagesList = new ArrayList<>();
    // private String link = "<a href=\"https://www.youtube.com/watch?v=vCwwba9SgIE\">Click</a>";
 //

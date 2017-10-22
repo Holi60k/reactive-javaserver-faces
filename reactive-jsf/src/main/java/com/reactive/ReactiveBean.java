@@ -43,6 +43,7 @@ public class ReactiveBean implements Serializable {
         return list;
     }
 
+    @SuppressWarnings("deprecation")
      Observable<String> myObservable = Observable.create(
             new Observable.OnSubscribe<String>() {
         @Override
@@ -66,7 +67,7 @@ public class ReactiveBean implements Serializable {
     }
     );
 
-    Subscriber<String> mySubscriber = new Subscriber<String>() {
+    private final Subscriber<String> mySubscriber = new Subscriber<String>() {
         @Override
         public void onNext(String s) {
             answer = s;
@@ -84,11 +85,8 @@ public class ReactiveBean implements Serializable {
 
     //////////////////////////////////////////////
     public static void hello(String... names) {
-        Observable.from(names).subscribe(new Action1<String>() {
-            @Override
-            public void call(String s) {
-                System.out.println("Hello " + s + "!");
-            }
+        Observable.from(names).subscribe((String s) -> {
+            System.out.println("Hello " + s + "!");
         });
     }
 
