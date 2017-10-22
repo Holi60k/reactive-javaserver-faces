@@ -4,12 +4,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.view.ViewScoped;
+import javax.inject.Named;
+
 import rx.Observable;
 import rx.Subscriber;
 
-@ManagedBean(name = "reactiveChat")
+@Named
 @ViewScoped
 public class ReactiveChat implements Serializable {
 

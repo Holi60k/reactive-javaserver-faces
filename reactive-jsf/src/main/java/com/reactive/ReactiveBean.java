@@ -3,13 +3,13 @@ package com.reactive;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
+
 import rx.Observable;
 import rx.Subscriber;
-import rx.functions.Action1;
 
-@ManagedBean(name = "reactiveBean")
+@Named
 @RequestScoped
 public class ReactiveBean implements Serializable {
 
