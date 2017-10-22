@@ -76,6 +76,7 @@ public class ReactiveChat implements Serializable {
         return answersList;
     }
 
+    @SuppressWarnings("deprecation")
     Observable<String> myObservable = Observable.create(
             new Observable.OnSubscribe<String>() {
         @Override
